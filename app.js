@@ -57,12 +57,9 @@ app.use(session({
 // app.use( keycloak.middleware( { logout: '/'} ));
 
 //Starting local server
-app.use(function (err, req, res, next) {
-  console.error(err.stack)
-  res.status(500).send('Something went wrong!!')
-})
-app.listen(3000, function (req, res) {
-  console.log('Server Started on localhost:3000');
+
+app.listen(3001, function (req, res) {
+  console.log('Server Started on localhost:3001');
 }).on('error', console.log);
 
 app.use(function (req, res, next) {
@@ -1293,3 +1290,8 @@ app.get('/badges/:post_ids', function(req,res){
     });
   });
 });
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send('Something went wrong!! Please Try again Later !!')
+})
